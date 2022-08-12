@@ -1,28 +1,31 @@
 {
-  "name": "notifyme",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@chakra-ui/react": "^2.2.6",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
-    "framer-motion": "^7.1.0",
-    "next": "12.2.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "18.7.2",
-    "@types/react": "18.0.17",
-    "@types/react-dom": "18.0.6",
-    "eslint": "8.21.0",
-    "eslint-config-next": "12.2.5",
-    "typescript": "4.7.4"
-  }
+	"name": "notifyme",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@chakra-ui/react": "2.1.0",
+		"@emotion/react": "^11.10.0",
+		"@emotion/styled": "^11.10.0",
+		"@magic-ext/connect": "^2.0.2",
+		"framer-motion": "^7.1.0",
+		"jotai": "^1.7.8",
+		"magic-sdk": "^9.0.0",
+		"next": "12.2.5",
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	},
+	"devDependencies": {
+		"@types/node": "18.7.2",
+		"@types/react": "18.0.17",
+		"@types/react-dom": "18.0.6",
+		"eslint": "8.21.0",
+		"eslint-config-next": "12.2.5",
+		"typescript": "4.7.4"
+	}
 }
