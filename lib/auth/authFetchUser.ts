@@ -1,0 +1,29 @@
+import { getUserToken } from '../storage';
+
+export const authFetchUser = async ({
+	endpoint,
+	body,
+	method,
+}: {
+	endpoint: string;
+	method: string;
+	body?: any;
+}) => {
+	const token = await getUserToken();
+	if (!token) {
+		return null;
+	}
+
+	const headers = {
+		'Content-Type': 'application/json',
+		Authorization: `Bearer ${token}`,
+	};
+
+	const response = await fetch(endpoint, {
+		method,
+		headers,
+		body: JSON.stringify(body),
+	});
+
+	return await response.json();
+};

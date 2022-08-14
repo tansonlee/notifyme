@@ -1,3 +1,4 @@
-import { atomWithStorage } from 'jotai/utils';
+import { atom } from 'jotai';
+import { UserFragment } from '../interface/user';
 
-export const userEmailAtom = atomWithStorage<string>('userEmail', '');
+export const userAtom = atom<UserFragment | null>(null);

@@ -3,24 +3,30 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "yarn next dev",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"@chakra-ui/react": "2.1.0",
+		"@apollo/client": "^3.6.9",
+		"@chakra-ui/react": "^2.2.6",
+		"@emotion/core": "^11.0.0",
 		"@emotion/react": "^11.10.0",
 		"@emotion/styled": "^11.10.0",
 		"@magic-ext/connect": "^2.0.2",
+		"@magic-sdk/admin": "^1.4.1",
 		"framer-motion": "^7.1.0",
+		"graphql": "^16.5.0",
 		"jotai": "^1.7.8",
+		"jsonwebtoken": "^8.5.1",
 		"magic-sdk": "^9.0.0",
 		"next": "12.2.5",
 		"react": "18.2.0",
 		"react-dom": "18.2.0"
 	},
 	"devDependencies": {
+		"@types/jsonwebtoken": "^8.5.8",
 		"@types/node": "18.7.2",
 		"@types/react": "18.0.17",
 		"@types/react-dom": "18.0.6",
