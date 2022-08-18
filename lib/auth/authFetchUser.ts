@@ -9,7 +9,7 @@ export const authFetchUser = async ({
 	method: string;
 	body?: any;
 }) => {
-	const token = await getUserToken();
+	const token = getUserToken();
 	if (!token) {
 		return null;
 	}

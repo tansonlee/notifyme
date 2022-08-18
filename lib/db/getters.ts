@@ -1,17 +1,12 @@
-import { UserFragment } from '../../interface/user';
+import { notificationColumns, NotificationFragment } from '../../interface/notification';
+import { userColumns, UserFragment } from '../../interface/user';
 import { fetchHasura } from './request';
 
-export const getNotificationsByUserId = async (userId: string) => {
+export const getNotificationsByUserId = async (userId: string): Promise<NotificationFragment[]> => {
 	const query = `
         query getNotificationsByUserId($userId: uuid!) {
             notification(where: {user_id: {_eq: $userId}}) {
-                body
-                created_at
-                id
-                title
-                type
-                updated_at
-                user_id
+                ${notificationColumns}
             }
         }
     `;
@@ -22,15 +17,11 @@ export const getNotificationsByUserId = async (userId: string) => {
 	return response.data.notification;
 };
 
-export const getUserById = async (userId: string): Promise<UserFragment> => {
+export const getUserById = async (userId: string): Promise<UserFragment | null> => {
 	const query = `
         query getUserById($id: uuid!) {
             user_by_pk(id: $id) {
-                created_at
-                email
-                id
-                updated_at
-                api_key
+                ${userColumns}
             }
         }
     `;
@@ -42,15 +33,11 @@ export const getUserById = async (userId: string): Promise<UserFragment> => {
 	return response.data.user_by_pk;
 };
 
-export const getUserByApiKey = async (apiKey: string): Promise<UserFragment> => {
+export const getUserByApiKey = async (apiKey: string): Promise<UserFragment | null> => {
 	const query = `
         query UserByApiKey($apiKey: uuid!) {
             user(where: {api_key: {_eq: $apiKey}}) {
-                api_key
-                created_at
-                email
-                id
-                updated_at
+                ${userColumns}
             }
         }
     `;
@@ -67,11 +54,7 @@ export const getUserByEmail = async (email: string): Promise<UserFragment | null
 		const query = `
             query UserByEmail($email: String!) {
                 user(where: {email: {_eq: $email}}) {
-                    api_key
-                    created_at
-                    email
-                    id
-                    updated_at
+                    ${userColumns}
                 }
             }
         `;
@@ -88,4 +71,30 @@ export const getUserByEmail = async (email: string): Promise<UserFragment | null
 		console.log('Error getting user by email', e);
 		return null;
 	}
+};
+
+export const getNotificationsByUserIdAndGroupId = async ({
+	groupId,
+	userId,
+}: {
+	userId: string;
+	groupId: string;
+}): Promise<NotificationFragment[]> => {
+	const query = `
+        query GetNotificationsByUserIdAndGroupId($userId: uuid!, $groupId: String!) {
+            notification(where: {user_id: {_eq: $userId}, _and: {group_id: {_eq: $groupId}}}) {
+                ${notificationColumns}
+            }
+        }
+      
+    `;
+
+	const variables = { userId, groupId };
+
+	const { data, error } = await fetchHasura(query, variables);
+	if (error) {
+		throw new Error(error);
+	}
+
+	return data.notification;
 };

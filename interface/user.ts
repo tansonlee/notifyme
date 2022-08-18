@@ -5,3 +5,5 @@ export type UserFragment = {
 	updated_at: string;
 	api_key: string;
 };
+
+export const userColumns = 'id email created_at updated_at api_key';

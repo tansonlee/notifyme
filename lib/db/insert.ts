@@ -1,3 +1,4 @@
+import { notificationColumns } from '../../interface/notification';
 import { fetchHasura } from './request';
 
 export const insertUser = async ({ email }: { email: string }) => {
@@ -24,27 +25,25 @@ export const insertNotification = async ({
 	title,
 	body,
 	type,
+	groupId,
+	link,
 }: {
 	userId: string;
 	title: string;
 	body: string;
 	type: string;
+	groupId: string;
+	link?: string;
 }) => {
 	const query = `
-        mutation InsertNotification($body: String!, $title: String!, $type: String!, $user_id: uuid!) {
-            insert_notification_one(object: {body: $body, title: $title, type: $type, user_id: $user_id}) {
-                body
-                created_at
-                id
-                title
-                type
-                updated_at
-                user_id
+        mutation InsertNotification($body: String!, $title: String!, $type: String!, $user_id: uuid!, $group_id: String!, $link: String) {
+            insert_notification_one(object: {body: $body, title: $title, type: $type, user_id: $user_id, group_id: $group_id, link: $link}) {
+                ${notificationColumns}
             }
         }
     `;
 
-	const variables = { user_id: userId, title, body, type };
+	const variables = { user_id: userId, group_id: groupId, title, body, type, link };
 
 	const response = await fetchHasura(query, variables);
 	console.log('response', response);
