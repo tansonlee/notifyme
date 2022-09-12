@@ -10,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	try {
 		const { groupId } = req.query;
 
-		const response = await fetch(`http://localhost:3000/api/v1/generate-client-secret`, {
+		const response = await fetch(`https://notifyr.vercel.app/api/v1/generate-client-secret`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
