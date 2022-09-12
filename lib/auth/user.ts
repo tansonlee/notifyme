@@ -51,7 +51,7 @@ export const verifyUserJwt = (token: string): { userId: string } | null => {
 
 export const generateUserJwt = (userId: string): string => {
 	const expiresInSeconds = 60 * 60 * 24 * 7;
-	const issuer = 'notifyme-tansonlee';
+	const issuer = 'notifyr-tansonlee';
 
 	if (!userId) {
 		throw new Error('userId must be provided');

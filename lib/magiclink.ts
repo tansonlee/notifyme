@@ -4,7 +4,7 @@ let magicLink: Magic | null = null;
 
 export const initializeMagicLink = () => {
 	if (typeof window === 'undefined') {
-		throw new Error('Magic initialized on server');
+		return;
 	}
 	if (!process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY) {
 		throw new Error('Magic publishable key not set');
@@ -12,8 +12,7 @@ export const initializeMagicLink = () => {
 	if (magicLink) {
 		return magicLink;
 	}
-	// magicLink = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY, {
-	magicLink = new Magic('pk_live_71236082FA2C077A', {
+	magicLink = new Magic(process.env.NEXT_PUBLIC_MAGIC_PUBLISHABLE_KEY, {
 		network: 'mainnet',
 	});
 	return magicLink;
