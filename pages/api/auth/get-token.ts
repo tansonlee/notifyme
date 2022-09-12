@@ -63,6 +63,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 					email,
 				});
 			}
+			if (!user) {
+				throw new Error('Could not create user');
+			}
 			userId = user.id;
 		}
 
