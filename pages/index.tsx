@@ -76,13 +76,20 @@ const Home: NextPage = () => {
 							</Box>
 						</Flex>
 					</Stack>
-					<Flex justify='center' mt={20}>
+					<Flex justify='center' align='center' mt={20}>
 						<Button
 							colorScheme='whatsapp'
 							onClick={() => router.push('/dashboard/login')}
+							mr={4}
 						>
 							GET STARTED
 						</Button>
+						<Link
+							href='https://notifyr.readme.io/reference/getting-started-1'
+							isExternal
+						>
+							DOCUMENTATION
+						</Link>
 					</Flex>
 				</>
 			</Layout>
