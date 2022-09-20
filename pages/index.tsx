@@ -70,8 +70,8 @@ const Home: NextPage = () => {
 							<Box>
 								<Text fontWeight='semibold'>Completely open-source</Text>
 								<Text>
-									The code is open source and available on GitHub for both the{' '}
-									<Link>SDK</Link> and <Link>API</Link>.
+									The code is open source and available on GitHub for both the SDK
+									and APIs.
 								</Text>
 							</Box>
 						</Flex>

@@ -43,6 +43,7 @@ import { RiSendPlaneFill } from 'react-icons/ri';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { NotificationFragment, NotificationType } from '../../interface/notification';
 import { format } from 'date-fns';
+import { FiSend } from 'react-icons/fi';
 
 type FormData = {
 	title: string;
@@ -117,7 +118,7 @@ const SendNotificationsSection = ({
 	};
 
 	return (
-		<Box>
+		<Box bgColor='#f2f7fa' p={4} borderRadius='lg' boxShadow='lg' border='1px solid #efefef'>
 			<Text fontSize='2xl' fontWeight='semibold'>
 				Send Notifications
 			</Text>
@@ -133,7 +134,15 @@ const SendNotificationsSection = ({
 				</Link>
 				!
 			</Text>
-			<Button onClick={onOpen}>SEND A NOTIFICATION</Button>
+			<Button
+				onClick={onOpen}
+				colorScheme='blue'
+				variant='outline'
+				mt={2}
+				leftIcon={<FiSend />}
+			>
+				SEND A NOTIFICATION
+			</Button>
 
 			<Modal isOpen={isOpen} onClose={onClose}>
 				<ModalOverlay />
@@ -280,7 +289,7 @@ const DevelopersSection = () => {
 	}
 
 	return (
-		<Box>
+		<Box bgColor='#f2f7fa' p={4} borderRadius='lg' boxShadow='lg' border='1px solid #efefef'>
 			<Text fontSize='2xl' fontWeight='semibold'>
 				Developers
 			</Text>
@@ -302,7 +311,7 @@ const DevelopersSection = () => {
 
 const SentNotificationsSection = ({ notifications }: { notifications: NotificationFragment[] }) => {
 	return (
-		<Box>
+		<Box bgColor='#f2f7fa' p={4} borderRadius='lg' boxShadow='lg' border='1px solid #efefef'>
 			<Text fontSize='2xl' fontWeight='semibold'>
 				Sent Notifications
 			</Text>

@@ -10,6 +10,7 @@ import {
 	MenuButton,
 	MenuList,
 	MenuItem,
+	Stack,
 } from '@chakra-ui/react';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
@@ -92,6 +93,36 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
 				</HStack>
 			</Flex>
 			{children}
+
+			<Footer />
 		</Box>
+	);
+};
+
+const Footer = () => {
+	return (
+		<Stack my={16} textAlign='center' spacing={4}>
+			<Link isExternal href='https://tansonlee.me'>
+				Made by Tanson Lee
+			</Link>
+			<HStack spacing={16} justifyContent='center'>
+				{/* <Stack textAlign='left'> */}
+				<Link href='https://notifyr.readme.io/reference/getting-started-1' isExternal>
+					Documentation
+				</Link>
+				<Link href='https://www.npmjs.com/package/@notifyr/sdk' isExternal>
+					Package
+				</Link>
+				{/* </Stack>
+				<Stack textAlign='left'> */}
+				<Link href='https://github.com/tansonlee/notifyr' isExternal>
+					Notifyr on GitHub
+				</Link>
+				<Link href='https://github.com/tansonlee/notifyr-sdk' isExternal>
+					SDK on GitHub
+				</Link>
+				{/* </Stack> */}
+			</HStack>
+		</Stack>
 	);
 };
