@@ -22,6 +22,10 @@ const Home: NextPage = () => {
 		})();
 	}, []);
 
+	useEffect(() => {
+		localStorage.removeItem('chakra-ui-color-mode');
+	});
+
 	return (
 		<Box>
 			<title>Notifyr</title>
