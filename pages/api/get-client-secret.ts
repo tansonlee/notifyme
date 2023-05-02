@@ -21,11 +21,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			}),
 		});
 
-		console.log('response', response);
-
 		const json = await response.json();
 
-		res.status(200).json(json);
+		return res.status(200).json(json);
 	} catch (e) {
 		console.log('unexpected error', e);
 		return res.status(500).json({ error: e });

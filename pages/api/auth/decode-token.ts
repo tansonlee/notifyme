@@ -9,11 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		return res.status(400).json({ error: 'No clientSecret given' });
 	}
 
-	console.log('gotr clientSecret', clientSecret);
-
 	const decoded = decodeToken(clientSecret);
-
-	console.log('decoded', decoded);
 
 	if (decoded === null) {
 		return res.status(400).json({ error: 'Invalid clientSecret' });
