@@ -46,7 +46,6 @@ export const Layout = ({ children }: { children: JSX.Element }) => {
 		(async () => {
 			const response = await fetch(`/api/get-client-secret?groupId=dashboard`);
 			const result = await response.json();
-			console.log('client secret', result);
 			setClientSecret(result.clientSecret);
 		})();
 	}, []);

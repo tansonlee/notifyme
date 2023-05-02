@@ -59,8 +59,6 @@ const Login = () => {
 				method: 'GET',
 			});
 
-			console.log('USER', user);
-
 			setUser(user);
 			router.push(PROFILE_ROUTE);
 			setIsLoading(false);
@@ -118,8 +116,6 @@ const Login = () => {
 			endpoint: '/api/user/get-user',
 			method: 'GET',
 		});
-
-		console.log('USER', user);
 
 		setUser(user);
 		router.push(PROFILE_ROUTE);

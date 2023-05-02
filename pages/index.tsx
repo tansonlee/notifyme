@@ -17,7 +17,6 @@ const Home: NextPage = () => {
 		(async () => {
 			const response = await fetch(`/api/get-client-secret`);
 			const result = await response.json();
-			console.log('client secret', result);
 			setClientSecret(result.clientSecret);
 		})();
 	}, []);

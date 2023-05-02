@@ -5,7 +5,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const { clientSecret } = req.body;
 
 	if (!clientSecret) {
-		console.log('no client secret');
 		return res.status(400).json({ error: 'No clientSecret given' });
 	}
 

@@ -73,10 +73,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 			throw new Error('No userId');
 		}
 
-		console.log({ userId });
-
 		const token = generateUserJwt(userId);
-		console.log({ token });
 
 		return res.status(200).json({ token });
 	} catch (e) {
